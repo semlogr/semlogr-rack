@@ -4,7 +4,7 @@ module Semlogr
   module Rack
     describe RequestLogger do
       describe '#call' do
-        let(:env) { { 'REQUEST_METHOD' => 'GET', 'REQUEST_URI' => '/foo' } }
+        let(:env) { { 'REQUEST_METHOD' => 'GET', 'REQUEST_PATH' => '/foo' } }
         let(:status) { 200 }
         let(:headers) { {} }
         let(:body) { 'foo' }
@@ -26,7 +26,7 @@ module Semlogr
               'HTTP {method} {path} - {status} ({duration}s)',
               hash_including(
                 method: env['REQUEST_METHOD'],
-                path: env['REQUEST_URI'],
+                path: env['REQUEST_PATH'],
                 status: status,
                 duration: be_within(0.01).of(1)
               )

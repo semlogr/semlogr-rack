@@ -8,7 +8,7 @@ module Semlogr
       end
 
       def call(env)
-        path = env['REQUEST_URI']
+        path = env['REQUEST_PATH']
         return @app.call(env) if filtered?(path)
 
         start = Process.clock_gettime(Process::CLOCK_MONOTONIC)

@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.1.2
+
+- Change request logger to log only path without query string
+
 ### 0.1.1
 
 - Add support for filtering requests by path for the request logger
