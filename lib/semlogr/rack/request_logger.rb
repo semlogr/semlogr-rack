@@ -33,7 +33,7 @@ module Semlogr
       end
 
       def filtered?(path)
-        @path_filters.any? { |f| path.match?(f) }
+        @path_filters.any? { |f| f.match?(path) }
       end
     end
   end
