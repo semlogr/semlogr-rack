@@ -10,8 +10,9 @@ module Semlogr
         let(:body) { 'foo' }
         let(:app) { spy('app') }
         let(:logger) { spy('logger') }
+        let(:filters) { [] }
 
-        subject { RequestLogger.new(app, logger) }
+        subject { RequestLogger.new(app, logger: logger, filters: filters) }
 
         it 'logs request info with time to call nested middleware' do
           allow(app).to receive(:call)
@@ -42,6 +43,16 @@ module Semlogr
           expect(s).to eq(status)
           expect(h).to eq(headers)
           expect(b).to eq(body)
+        end
+
+        context 'with filter added' do
+          let(:filters) { [%r{^/foo}] }
+
+          it 'does not log request' do
+            subject.call(env)
+
+            expect(logger).to_not have_received(:info)
+          end
         end
       end
     end
