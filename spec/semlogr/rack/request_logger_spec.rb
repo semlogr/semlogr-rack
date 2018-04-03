@@ -28,7 +28,7 @@ module Semlogr
                 method: env['REQUEST_METHOD'],
                 path: env['REQUEST_URI'],
                 status: status,
-                duration: be_within(0.001).of(1)
+                duration: be_within(0.01).of(1)
               )
             )
         end
