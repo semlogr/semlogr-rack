@@ -21,7 +21,7 @@ module Semlogr
           .and_yield
       end
 
-      context 'with x-correlation-id-header' do
+      context 'with x-correlation-id header' do
         let(:correlation_id) { env_with_id['HTTP_X_CORRELATION_ID'] }
 
         it 'adds existing correlation-id to the log context' do
