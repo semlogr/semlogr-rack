@@ -16,7 +16,7 @@ module Semlogr
           .to receive(:call)
           .and_return([200, {}, 'Hello'])
 
-        allow(Semlogr::Context::LogContext)
+        allow(Semlogr::LogContext)
           .to receive(:push_property)
           .and_yield
       end
@@ -27,7 +27,7 @@ module Semlogr
         it 'adds existing correlation-id to the log context' do
           subject.call(env_with_id)
 
-          expect(Semlogr::Context::LogContext)
+          expect(Semlogr::LogContext)
             .to have_received(:push_property)
             .with(correlation_id: correlation_id)
         end
@@ -51,7 +51,7 @@ module Semlogr
         it 'adds new correaltion-id to the log context' do
           subject.call(env_without_id)
 
-          expect(Semlogr::Context::LogContext)
+          expect(Semlogr::LogContext)
             .to have_received(:push_property)
             .with(correlation_id: correlation_id)
         end
