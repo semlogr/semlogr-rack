@@ -14,7 +14,7 @@ module Semlogr
         id_header = env_header_name(@id_header)
         correlation_id = env[id_header] || @id_generator.call
         status, headers, body =
-          Semlogr::Context::LogContext.push_property(correlation_id: correlation_id) do
+          Semlogr::LogContext.push_property(correlation_id: correlation_id) do
             @app.call(env)
           end
 

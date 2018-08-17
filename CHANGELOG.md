@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.1.3
+
+- Upgrade semlogr for new flatter LogContext
+
 ### 0.1.2
 
 - Change request logger to log only path without query string
