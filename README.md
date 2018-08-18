@@ -21,7 +21,7 @@ then:
 
 ## Getting Started
 
-Create an instance of the logger and configue the RequestLogger middleware.
+Create an instance of the logger and configue the RequestLogger and RequestCorrelator middleware.
 
 ```ruby
 require 'semlogr'
@@ -35,6 +35,7 @@ end
 
 ...
 
+use Semlogr::Rack::RequestCorrelator
 use Semlogr::Rack::RequestLogger
 ```
 
