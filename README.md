@@ -1,4 +1,6 @@
 ![Codeship Status for semlogr/semlogr-rack](https://codeship.com/projects/dbabb960-15e2-0136-f3e7-6691f5d61ed9/status?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/40c3300a696a9c2ea04c/maintainability)](https://codeclimate.com/github/semlogr/semlogr-rack/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/40c3300a696a9c2ea04c/test_coverage)](https://codeclimate.com/github/semlogr/semlogr-rack/test_coverage)
 
 # Semlogr integration for Rack
 
